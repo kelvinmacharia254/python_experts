@@ -1,0 +1,4 @@
+print("You double clicked to run this scripts.")
+
+
+input()
