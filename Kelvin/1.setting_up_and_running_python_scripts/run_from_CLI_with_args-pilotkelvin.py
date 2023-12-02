@@ -2,18 +2,21 @@
 
 import sys
 
-# 'sys' is one of built-in system libraries(libraries that interact with the underlying operating system.
+# 'sys' is one of built-in system libraries(libraries that interact with the underlying operating system).
 # Examples of other such libraries includes OS and
 
 # Example 1: Basics of sys.argv
 # counts start from 1 because index 0 contains the scripts directory by default
+# print(sys.argv)
 # print(f"You passed {sys.argv[1]} and {sys.argv[2]}")
 
-# Example 2: sys.arv is a list of strings
-# whatever you pass is taken as string. Do necessary type casting for use in your project
+# Example 2: sys.argv is a list of strings
+# whatever you pass is taken as a string. Do necessary type casting for use in your project
 # print(f"You passed {type(sys.argv[1])} and {type(sys.argv[2])}")
+# print(f"You passed {sys.argv[1]} and {sys.argv[2]}")
+# print(int(sys.argv[1])+int(sys.argv[2]))
 
-# Example 3: What can go wrong with sys.arg? Use conditionals
+# Example 3: What can go wrong with sys.arg? Use conditionals or switch case
 # You must pass the args you put in your code otherwise the program fails.
 # But you can use branches and len(sys.argv) to make the script robust(cover all cases) and not fail.
 # length of sys.argv 1 by default before passing any extra args from the CLI.
