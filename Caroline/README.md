@@ -147,9 +147,21 @@ git commit -m "Remove file"
 ##### Unstage the File(s):
 - If you want to unstage a specific file, use git reset followed by the file name. For example:
 """
-git reset -- <file>
+** git reset -- <file>**
 """
 - If you want to unstage all files, you can use git reset without specifying a file:
-""git reset""
+**""git reset""**
+
+#### Deleting untracked files
+###### Check Untracked Files:
+- First, use the git status command to see which files are untracked: **"Git status"**
+
+###### Preview the Files to be Deleted (Optional):
+- You can preview the untracked files that will be deleted by using the -n or --dry-run option with git clean: **"git clean -n"**
+###### Delete Untracked Files:
+- To permanently delete the untracked files from your repository, use the git clean command with the -f or --force option: **"git clean -f"**
+- If you only want to delete untracked directories, you can use the -d option: **"git clean -f -d"**
 
 ### File Handling
+- Json files
+- csv, txt, binary files,
