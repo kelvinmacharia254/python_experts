@@ -2,7 +2,14 @@
 This script illustrates how to configure logging severity.
 Change levels and observe the output.
 
-print statements get priority over Log messages
+Providing a filename to the basicConfig() function in Python's logging module, by default, logs will not be sent
+to the console (stdout). The basicConfig() function initializes logging and configures the root logger with the
+specified options, including directing output to a file.
+
+Providing a filename to basicConfig() doesn't explicitly prevent logs from being sent to the console.
+Instead, it simply configures the logging system to send logs to the specified file.
+Logs can still appear on the console in addition to being written to the file,
+you would need to explicitly add a StreamHandler (or another appropriate handler) for console output.
 """
 import logging
 
@@ -10,8 +17,12 @@ import logging
 logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
     datefmt="%d-%b-%y %H:%M:%S",  # specify the time format
+    # filename="logfile_example1.txt",
     level=logging.DEBUG,
 )
+root_logger = logging.getLogger()
+f_handler = logging.FileHandler("root_file.txt")
+root_logger.addHandler(f_handler)
 
 # comment or comment this block to see it's effect
 # Change the logging level to desired severity. You can't use
@@ -43,10 +54,7 @@ def example_logging_function():
     # CRITICAL level
     logging.critical("This is a critical message.")
 
-    print("Print statements get priority over logs. This print statement is below the log messages in the source "
-          "code but prints above them when the program is executed.")
-
 
 example_logging_function()
 
-#%%
+# %%
