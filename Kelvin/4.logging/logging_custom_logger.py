@@ -15,8 +15,8 @@ Components of a logger:
       d) HTTPHandler for sending logs to web server through POST HTTP methods.
 
 NOTE: All logs from different handlers are logged simultaneously with the same messages.
-    : You can configure all handlers if you require that
-2. Formatter: Defined ow the log message strings looks like.
+    : You can configure all handlers if you require that in your project
+2. Formatter: Defined how the log message strings looks like.
 3. Severity level: Defines severity of an event
 """
 import logging
@@ -28,36 +28,37 @@ logger = logging.getLogger(__name__)  # __name__ refers to the current module
 print(logger.name)
 
 # Step 2: Configure handlers
-# Create handlers using Handler() class. You set as many as options available
-#    a) Console handler
+# Create handlers using Handler() class. You can set as many handlers as the options available.
+#    A) Console handler
 console_handler = logging.StreamHandler()
-#    b) file handler: - to log to file. Specify the file name
+#    B) file handler: - to log to file. Specify the file name
 file_handler = logging.FileHandler("logfile.txt")
 
 # Step 3: Set severity level for each of the handlers.
-# Set severity level for each handler.
-# Each handler can be set to have its own severity level
-# Loggers log the level set or higher.
+#   Set severity level for each handler.
+#   Each handler can be set to have its own severity level
+#   Loggers log the level set or higher.
 
 console_handler.setLevel(logging.WARNING)
 file_handler.setLevel(logging.ERROR)
 
 # Step 4: Configure a formatter
-# Create formatters, formatter can have different patterns for each handler they don't have to match.
-# Custom logger has no format and one should be defined for each Handler.
-# Without a formatter, the logger will just log the log message passed. This lacks meta-data and context.
-# Logs metadata includes information timestamps, execution line number e.t.c
-# The Formatter() class of the logging module fits the job.
-console_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-file_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+#   Create formatters, formatter can have different patterns for each handler they don't have to match.
+#   Custom logger has no format and one should be defined for each Handler.
+#   Without a formatter, the logger will just log the log message passed which lacks meta-data and context.
+#   Logs metadata includes information timestamps, execution line number e.t.c
+#   The Formatter() class of the logging module fits the job.
+console_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt="%d-%B-%Y %H:%M:%S")
+file_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt="%d-%B-%Y %H:%M:%S")
 
 # Step 5: Associate formatters to the handlers
-# The formatter objects so far are independent of the logging handlers. Let's associate
+#   The formatter objects so far are independent of the logging handlers.
+#   Let's associate them
 console_handler.setFormatter(console_format)
 file_handler.setFormatter(file_format)
 
 # step 6: Link handler to the custom logger
-# Link the handlers to the custom logger
+#   Link the handlers to the custom logger
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
@@ -71,7 +72,7 @@ How the code works
 - Each handler was set to have its own severity level.
 - Remember python logs the severity level set or more severe than that
 - When the custom logger is run, the two lines will be logged on the console because the console handler
-  was set to ERROR level which is less severe to WARNING. Only the error log will be logged to file because the
+  was set to WARNING level which is less severe to ERROR. Only the error log will be logged to file because the
   file log handler level was set to ERROR level which is higher than WARNING.
   
 - Comment out the original code around with the severity level for the handlers and observe the output 
