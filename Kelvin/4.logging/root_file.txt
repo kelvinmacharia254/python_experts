@@ -3,3 +3,16 @@ This is an informational message.
 This is a warning message.
 This is an error message.
 This is a critical message.
+This is a debug message.
+This is an informational message.
+This is a warning message.
+This is an error message.
+This is a critical message.
+This is a warning message.
+This is an error message.
+This is a critical message.
+This is a debug message.
+This is an informational message.
+This is a warning message.
+This is an error message.
+This is a critical message.
