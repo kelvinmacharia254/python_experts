@@ -1,0 +1,38 @@
+# 1. Create a logger
+# Define two loggers in this case i.e default root and a custom loggers named sampleLogger
+
+
+# 2. Create and configure Handlers
+#    2(a) create handlers(destination)
+
+#    2(b) create and configure a formatter for the handlers
+
+
+#   2(c) Configure the handlers with the formatter and any of the default severity level as per project requirements
+#       Severity level can be overridden when linking handlers and logger.
+
+
+# 3. Link loggers to handlers
+
+version: 1
+loggers:
+  sampleLogger:
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+root:
+  level: DEBUG
+  handlers: [console]
+
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%d-%b-%y %H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+
