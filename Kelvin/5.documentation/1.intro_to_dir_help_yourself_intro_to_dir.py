@@ -74,7 +74,7 @@ print(f'The PythonExpertFellow object has the following attrs: \n {dir(kelvin)}'
 # Next:
 # Know more about your objects with help and other documentation sources.
 # go deep into builtins, 3rd party packages
-# running dir() in a module without an arg
+# running dir() in a module without an arg // done
 # documentation
-# Scope and Name resolution. Answer: What happens when you name your modules a names similar to an inbuilt?
+# Scope(LEG) and Name resolution. Answer: What happens when you name your modules a names similar to an inbuilt?
 # Iterables, iterators and generators
